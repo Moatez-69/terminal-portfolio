@@ -1,14 +1,50 @@
 export default function AboutPage() {
   const skills = {
-    "Programming Languages": ["Python (Advanced)", "C", "Java", "JavaScript", "PHP", "Bash"],
-    "Web Technologies": ["HTML", "CSS", "JavaScript", "Node.js", "Next.js", "Tailwind CSS"],
-    "Cybersecurity Skills": [
-      "CTF Challenges (Forensics, Web, MISC)",
-      "Network Security Analysis",
-      "Penetration Testing",
+    "Programming Languages": [
+      "Python (Advanced)", 
+      "C", 
+      "Java", 
+      "JavaScript", 
+      "PHP", 
+      "Bash"
     ],
-    "Tools & Technologies": ["SQL", "MySQL", "Steampipe", "Cloud Security", "Microsoft Steampipe"],
-    "CTF Specializations": ["Forensics", "Web Exploitation", "MISC Challenges", "Pyjails", "Python Scripting"],
+    "Web Technologies": [
+      "HTML", 
+      "CSS", 
+      "JavaScript", 
+      "React.js", 
+      "Node.js", 
+      "Next.js", 
+      "Tailwind CSS"
+    ],
+    "Cybersecurity Skills": [
+      "CTF Challenges (Forensics, Web, MISC)", 
+      "Network Security Analysis", 
+      "Penetration Testing",
+      "Threat Intelligence Enrichment",
+      "Vulnerability Management"
+    ],
+    "CTF Specializations": [
+      "Forensics", 
+      "Web Exploitation", 
+      "MISC Challenges", 
+      "Pyjails", 
+      "Python Scripting"
+    ],
+    "Tools & Technologies": [
+      "SQL", 
+      "MySQL", 
+      "PostgreSQL", 
+      "PL/SQL", 
+      "Docker", 
+      "Prisma ORM", 
+      "Elasticsearch"
+    ],
+    "DevOps & Deployment": [
+      "Vercel (Static & Serverless Hosting)", 
+      "GitHub Actions (CI/CD)", 
+      "Nginx (Basic Reverse Proxying)"
+    ],
   }
 
   const achievements = [
