@@ -55,6 +55,6 @@ body {
 
 /* Light theme scrollbar */
 .light ::-webkit-scrollbar-thumb {
-  background: #2563eb !important;
+  background: #000000 !important;
   border-radius: 4px;
 }
