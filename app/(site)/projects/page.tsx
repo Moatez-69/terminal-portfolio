@@ -4,8 +4,8 @@ export default function ProjectsPage() {
       title: "Vulnerability Operation Center",
       description:
         "Created comprehensive VOC system with automated CVE fetching from multiple resources, intelligent alerting system, and monthly report automation for enhanced cybersecurity monitoring.",
-      technologies: ["Python", "CVE APIs", "Automation", "Report Generation"],
-      github: "https://github.com/3angour/voc-system",
+      technologies: ["Python", "CVE APIs", "Automation", "Report Generation" , "Alerting System"],
+      github: null,
       demo: null,
       status: "Active",
       featured: true,
@@ -15,7 +15,7 @@ export default function ProjectsPage() {
       description:
         "Developed customized plugin for sysreptor using Microsoft Steampipe, creating specialized report templates to enhance cybersecurity documentation and analysis workflows.",
       technologies: ["Microsoft Steampipe", "Plugin Development", "Report Templates", "Cybersecurity"],
-      github: "https://github.com/3angour/sysreptor-steampipe",
+      github: null,
       demo: null,
       status: "Active",
       featured: true,
@@ -25,7 +25,7 @@ export default function ProjectsPage() {
       description:
         "Contributed MISC and Forensics tasks for Securinets ISI, developing complex challenge scenarios testing advanced cybersecurity skills with Python scripting for Pyjails challenges.",
       technologies: ["Python", "CTF Development", "Forensics", "Pyjails", "Challenge Design"],
-      github: "https://github.com/securinets-isi/guided-ctf",
+      github: null,
       demo: null,
       status: "Active",
       featured: false,
@@ -35,7 +35,7 @@ export default function ProjectsPage() {
       description:
         "Developed machine learning-powered Taquin game using advanced Python techniques, implementing predictive algorithms to optimize gameplay strategies and enhance user experience.",
       technologies: ["Python", "Machine Learning", "AI Algorithms", "Game Development"],
-      github: "https://github.com/3angour/ai-taquin-game",
+      github: "https://github.com/semzuu/jeu-de-taquin-solver",
       demo: null,
       status: "Completed",
       featured: false,
@@ -45,8 +45,8 @@ export default function ProjectsPage() {
       description:
         "This very website! A terminal-themed portfolio and blog built with Next.js, featuring multi-theme switching and markdown blog support for CTF writeups and cybersecurity content.",
       technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-      github: "https://github.com/3angour/terminal-portfolio",
-      demo: "https://3angour-portfolio.vercel.app",
+      github: "https://github.com/Moatez-69/terminal-portfolio",
+      demo: "https://blog.3angour.tech/",
       status: "Active",
       featured: false,
     },
@@ -212,7 +212,7 @@ export default function ProjectsPage() {
           <p>
             Check out my{" "}
             <a
-              href="https://github.com/3angour"
+              href="https://github.com/Moatez-69"
               target="_blank"
               rel="noopener noreferrer"
               className="terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent hover:underline"
