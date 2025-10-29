@@ -135,7 +135,7 @@ export default function AboutPage() {
               <strong className="terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent">
                 Mootez Ben Slimen (3angour)
               </strong>
-              , Master’s student in Cybersecurity with a background in software engineering, CTF competitions, and Python automation.
+              , Master student in Cybersecurity with a background in software engineering, CTF competitions, and Python automation.
                Awarded an Excellence Scholarship at MedTech University.
             </p>
             <p className="leading-relaxed">
