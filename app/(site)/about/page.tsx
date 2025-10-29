@@ -148,53 +148,55 @@ export default function AboutPage() {
       </section>
 
       {/* Education */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
-          $ cat education.log
-        </h2>
-        <div className="space-y-4">
-          <div className="border-l-2 terminal:border-terminal-accent blue:border-bluef-accent light:border-light-accent pl-4 py-2">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="font-bold terminal:text-terminal-text blue:text-bluef-text light:text-light-text font-mono">
-                Mediterranean Institute Of Technology(MEDTECH)
-              </h3>
-              <span className="text-sm terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
-                2025 - Present
-              </span>
-            </div>
-            <p className="terminal:text-terminal-text blue:text-bluef-text light:text-light-text opacity-80">
-              Master in Cybersecurity • Lac2, Tunisia
-            </p>   
-          </div>     
-        <div className="space-y-4">
-          <div className="border-l-2 terminal:border-terminal-accent blue:border-bluef-accent light:border-light-accent pl-4 py-2">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="font-bold terminal:text-terminal-text blue:text-bluef-text light:text-light-text font-mono">
-                Higher Institute of Computer Science
-              </h3>
-              <span className="text-sm terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
-                2022 - 2025
-              </span>
-            </div>
-            <p className="terminal:text-terminal-text blue:text-bluef-text light:text-light-text opacity-80">
-              Software Engineering • Ariana, Tunisia
-            </p>
-          </div>
-          <div className="border-l-2 terminal:border-terminal-accent blue:border-bluef-accent light:border-light-accent pl-4 py-2">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="font-bold terminal:text-terminal-text blue:text-bluef-text light:text-light-text font-mono">
-                Mahmoud Messaadi High School
-              </h3>
-              <span className="text-sm terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
-                2018 - 2022
-              </span>
-            </div>
-            <p className="terminal:text-terminal-text blue:text-bluef-text light:text-light-text opacity-80">
-              High School Diploma with Honors • Nabeul, Tunisia
-            </p>
-          </div>
-        </div>
-      </section>
+<section className="mb-12">
+  <h2 className="text-2xl font-bold mb-6 terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
+    $ cat education.log
+  </h2>
+
+  <div className="space-y-4">
+    <div className="border-l-2 terminal:border-terminal-accent blue:border-bluef-accent light:border-light-accent pl-4 py-2">
+      <div className="flex items-center justify-between mb-2">
+        <h3 className="font-bold terminal:text-terminal-text blue:text-bluef-text light:text-light-text font-mono">
+          Mediterranean Institute Of Technology (MEDTECH)
+        </h3>
+        <span className="text-sm terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
+          2025 - Present
+        </span>
+      </div>
+      <p className="terminal:text-terminal-text blue:text-bluef-text light:text-light-text opacity-80">
+        Master in Cybersecurity • Lac2, Tunisia
+      </p>
+    </div>
+
+    <div className="border-l-2 terminal:border-terminal-accent blue:border-bluef-accent light:border-light-accent pl-4 py-2">
+      <div className="flex items-center justify-between mb-2">
+        <h3 className="font-bold terminal:text-terminal-text blue:text-bluef-text light:text-light-text font-mono">
+          Higher Institute of Computer Science
+        </h3>
+        <span className="text-sm terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
+          2022 - 2025
+        </span>
+      </div>
+      <p className="terminal:text-terminal-text blue:text-bluef-text light:text-light-text opacity-80">
+        Software Engineering • Ariana, Tunisia
+      </p>
+    </div>
+
+    <div className="border-l-2 terminal:border-terminal-accent blue:border-bluef-accent light:border-light-accent pl-4 py-2">
+      <div className="flex items-center justify-between mb-2">
+        <h3 className="font-bold terminal:text-terminal-text blue:text-bluef-text light:text-light-text font-mono">
+          Mahmoud Messaadi High School
+        </h3>
+        <span className="text-sm terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
+          2018 - 2022
+        </span>
+      </div>
+      <p className="terminal:text-terminal-text blue:text-bluef-text light:text-light-text opacity-80">
+        High School Diploma with Honors • Nabeul, Tunisia
+      </p>
+    </div>
+  </div>
+</section>
 
       {/* Experience */}
       <section className="mb-12">
