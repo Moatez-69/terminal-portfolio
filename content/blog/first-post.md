@@ -45,5 +45,4 @@ Then in debugger:
 - Breakpoint() is the universal starting point
 - Unicode chars bypass character filters but execute normally
 - Hex/bytes encoding bypasses string-based filters
-``` 
 

@@ -135,14 +135,13 @@ export default function AboutPage() {
               <strong className="terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent">
                 Mootez Ben Slimen (3angour)
               </strong>
-              , a passionate computer science student specializing in cybersecurity with expertise in CTF competitions
-              and advanced Python scripting.
+              , Master’s student in Cybersecurity with a background in software engineering, CTF competitions, and Python automation.
+               Awarded an Excellence Scholarship at MedTech University.
             </p>
             <p className="leading-relaxed">
-              I have a proven track record in forensics and web security, demonstrated through multiple top-ranking CTF
-              performances. Currently seeking opportunities to apply innovative problem-solving skills in cybersecurity
-              research and development, committed to advancing technological security through hands-on experience and
-              continuous learning.
+              Proven ability to develop secure systems, create custom
+              tooling, and contribute to high-performing teams. 
+              Eager to apply technical expertise and creative problem-solving in a challenging professional environment.
             </p>
           </div>
         </div>
@@ -157,10 +156,23 @@ export default function AboutPage() {
           <div className="border-l-2 terminal:border-terminal-accent blue:border-bluef-accent light:border-light-accent pl-4 py-2">
             <div className="flex items-center justify-between mb-2">
               <h3 className="font-bold terminal:text-terminal-text blue:text-bluef-text light:text-light-text font-mono">
+                Mediterranean Institute Of Technology(MEDTECH)
+              </h3>
+              <span className="text-sm terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
+                2025 - Present
+              </span>
+            </div>
+            <p className="terminal:text-terminal-text blue:text-bluef-text light:text-light-text opacity-80">
+              Master in Cybersecurity • Lac2, Tunisia
+            </p>        
+        <div className="space-y-4">
+          <div className="border-l-2 terminal:border-terminal-accent blue:border-bluef-accent light:border-light-accent pl-4 py-2">
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="font-bold terminal:text-terminal-text blue:text-bluef-text light:text-light-text font-mono">
                 Higher Institute of Computer Science
               </h3>
               <span className="text-sm terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
-                2022 - Present
+                2022 - 2025
               </span>
             </div>
             <p className="terminal:text-terminal-text blue:text-bluef-text light:text-light-text opacity-80">
