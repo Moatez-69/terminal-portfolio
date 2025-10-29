@@ -164,7 +164,8 @@ export default function AboutPage() {
             </div>
             <p className="terminal:text-terminal-text blue:text-bluef-text light:text-light-text opacity-80">
               Master in Cybersecurity • Lac2, Tunisia
-            </p>        
+            </p>   
+          </div>     
         <div className="space-y-4">
           <div className="border-l-2 terminal:border-terminal-accent blue:border-bluef-accent light:border-light-accent pl-4 py-2">
             <div className="flex items-center justify-between mb-2">
