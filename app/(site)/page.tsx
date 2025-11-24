@@ -21,7 +21,7 @@ export default function HomePage() {
             <div className="text-lg md:text-xl font-mono terminal:text-terminal-text blue:text-bluef-text light:text-light-text opacity-90">
               <div className="mb-2">$ whoami</div>
               <div className="text-base opacity-80">
-                Computer Science Student • CTF Player • Cybersecurity Enthusiast
+                Cybersecurity Master's student • CTF Player 
               </div>
             </div>
           </div>
