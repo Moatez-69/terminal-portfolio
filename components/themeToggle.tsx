@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-type Theme = "terminal" | "blue" | "light"
+type Theme = "terminal" | "Nour" | "light"
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("terminal")
@@ -29,7 +29,7 @@ export default function ThemeToggle() {
       if (theme === "terminal") {
         document.documentElement.classList.add("dark", "terminal")
       } else if (theme === "blue") {
-        document.documentElement.classList.add("dark", "blue")
+        document.documentElement.classList.add("dark", "Nour")
       } else if (theme === "light") {
         document.documentElement.classList.add("light")
       }
@@ -39,7 +39,7 @@ export default function ThemeToggle() {
   }, [theme, mounted])
 
   const cycleTheme = () => {
-    const themes: Theme[] = ["terminal", "blue", "light"]
+    const themes: Theme[] = ["terminal", "Nour", "light"]
     const currentIndex = themes.indexOf(theme)
     const nextIndex = (currentIndex + 1) % themes.length
     setTheme(themes[nextIndex])
@@ -49,8 +49,8 @@ export default function ThemeToggle() {
     switch (theme) {
       case "terminal":
         return "💻 Terminal"
-      case "blue":
-        return "🦾 Blue"
+      case "Nour":
+        return "🦾 Nour"
       case "light":
         return "☀️ Light"
       default:
