@@ -1,75 +1,65 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
-type Theme = "terminal" | "blue" | "light";
+type Theme = "terminal" | "light"
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("terminal");
-  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<Theme>("terminal")
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true);
+    setMounted(true)
     // Check for saved theme preference or default to terminal
-    const savedTheme = localStorage.getItem("theme") as Theme;
+    const savedTheme = localStorage.getItem("theme") as Theme
 
-    if (savedTheme && ["terminal", "blue", "light"].includes(savedTheme)) {
-      setTheme(savedTheme);
+    if (savedTheme && ["terminal", "light"].includes(savedTheme)) {
+      setTheme(savedTheme)
     } else {
-      setTheme("terminal");
+      setTheme("terminal")
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
     if (mounted) {
       // Remove all theme classes first
-      document.documentElement.classList.remove(
-        "dark",
-        "light",
-        "terminal",
-        "blue",
-      );
+      document.documentElement.classList.remove("dark", "light", "terminal")
 
       // Apply the correct theme classes
       if (theme === "terminal") {
-        document.documentElement.classList.add("dark", "terminal");
-      } else if (theme === "blue") {
-        // use the "blue" classname that other components expect
-        document.documentElement.classList.add("dark", "blue");
+        document.documentElement.classList.add("dark", "terminal")
       } else if (theme === "light") {
-        document.documentElement.classList.add("light");
+        document.documentElement.classList.add("light")
       }
 
-      localStorage.setItem("theme", theme);
+      localStorage.setItem("theme", theme)
     }
-  }, [theme, mounted]);
+  }, [theme, mounted])
 
   const cycleTheme = () => {
-    const themes: Theme[] = ["terminal", "blue", "light"];
-    const currentIndex = themes.indexOf(theme);
-    const nextIndex = (currentIndex + 1) % themes.length;
-    setTheme(themes[nextIndex]);
-  };
+    const themes: Theme[] = ["terminal", "light"]
+    const currentIndex = themes.indexOf(theme)
+    const nextIndex = (currentIndex + 1) % themes.length
+    setTheme(themes[nextIndex])
+  }
 
   const getThemeIcon = () => {
     switch (theme) {
       case "terminal":
-        return "💻 Terminal";
-      case "blue":
-        return "🔵 Blue";
+        return "💻 Terminal"
       case "light":
-        return "☀️ Light";
+        return "☀️ Light"
       default:
-        return "💻 Terminal";
+        return "💻 Terminal"
     }
-  };
+  }
 
   if (!mounted) {
     return (
       <div className="p-2 rounded border border-gray-500">
         <span className="text-sm">🌙</span>
       </div>
-    );
+    )
   }
 
   return (
@@ -80,5 +70,5 @@ export default function ThemeToggle() {
     >
       {getThemeIcon()}
     </button>
-  );
+  )
 }

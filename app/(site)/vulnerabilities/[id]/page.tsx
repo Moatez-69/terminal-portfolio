@@ -44,12 +44,12 @@ export default function VulnerabilityDetailPage({ params }: { params: { id: stri
         // Replace with your actual API endpoint
         const response = await fetch(`/api/vulnerabilities/${params.id}`)
         if (!response.ok) {
-          throw new Error('Failed to fetch vulnerability data')
+          throw new Error("Failed to fetch vulnerability data")
         }
         const data = await response.json()
         setVulnerability(data)
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred')
+        setError(err instanceof Error ? err.message : "An error occurred")
       } finally {
         setLoading(false)
       }
@@ -60,34 +60,34 @@ export default function VulnerabilityDetailPage({ params }: { params: { id: stri
 
   const getSeverityColor = (severity: string) => {
     switch (severity.toLowerCase()) {
-      case 'critical':
-        return 'text-red-500'
-      case 'high':
-        return 'text-orange-500'
-      case 'medium':
-        return 'text-yellow-500'
-      case 'low':
-        return 'text-green-500'
+      case "critical":
+        return "text-red-500"
+      case "high":
+        return "text-orange-500"
+      case "medium":
+        return "text-yellow-500"
+      case "low":
+        return "text-green-500"
       default:
-        return 'text-gray-500'
+        return "text-gray-500"
     }
   }
 
   const getCVSSColor = (score: number) => {
-    if (score >= 9.0) return 'text-red-500'
-    if (score >= 7.0) return 'text-orange-500'
-    if (score >= 4.0) return 'text-yellow-500'
-    return 'text-green-500'
+    if (score >= 9.0) return "text-red-500"
+    if (score >= 7.0) return "text-orange-500"
+    if (score >= 4.0) return "text-yellow-500"
+    return "text-green-500"
   }
 
   if (loading) {
     return (
       <div className="max-w-4xl mx-auto">
         <div className="text-center py-12">
-          <div className="text-terminal-accent dark:text-bluef-accent light:text-light-accent font-mono text-lg mb-4">
+          <div className="terminal:text-terminal-accent light:text-light-accent font-mono text-lg mb-4">
             $ curl -s /api/vulnerabilities/{params.id}
           </div>
-          <p className="text-terminal-text dark:text-bluef-text light:text-light-text opacity-60">
+          <p className="terminal:text-terminal-text light:text-light-text opacity-60">
             Loading vulnerability details...
           </p>
         </div>
@@ -100,11 +100,11 @@ export default function VulnerabilityDetailPage({ params }: { params: { id: stri
       <div className="max-w-4xl mx-auto">
         <div className="text-center py-12">
           <div className="text-red-500 font-mono text-lg mb-4">
-            $ echo "Error: {error || 'Vulnerability not found'}"
+            $ echo "Error: {error || "Vulnerability not found"}"
           </div>
           <Link
             href="/vulnerabilities"
-            className="text-terminal-accent dark:text-bluef-accent light:text-light-accent hover:underline font-mono"
+            className="terminal:text-terminal-accent light:text-light-accent hover:underline font-mono"
           >
             $ cd ../vulnerabilities
           </Link>
@@ -119,29 +119,31 @@ export default function VulnerabilityDetailPage({ params }: { params: { id: stri
       <div className="mb-8">
         <Link
           href="/vulnerabilities"
-          className="inline-flex items-center text-terminal-accent dark:text-bluef-accent light:text-light-accent hover:underline font-mono text-sm mb-4"
+          className="inline-flex items-center terminal:text-terminal-accent light:text-light-accent hover:underline font-mono text-sm mb-4"
         >
           ← $ cd ../vulnerabilities
         </Link>
 
-        <header className="border-b border-terminal-accent/30 dark:border-bluef-accent/30 light:border-gray-300 pb-6">
+        <header className="border-b terminal:border-terminal-accent/30 light:border-gray-300 pb-6">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-terminal-text dark:text-bluef-text light:text-light-text font-mono">
+            <h1 className="text-3xl md:text-4xl font-bold terminal:text-terminal-text light:text-light-text font-mono">
               {vulnerability.id}
             </h1>
-            <span className={`text-lg font-bold font-mono px-3 py-1 rounded ${getSeverityColor(vulnerability.severity)}`}>
+            <span
+              className={`text-lg font-bold font-mono px-3 py-1 rounded ${getSeverityColor(vulnerability.severity)}`}
+            >
               {vulnerability.severity.toUpperCase()}
             </span>
           </div>
 
           <div className="flex items-center gap-4 text-sm font-mono">
-            <span className="text-terminal-accent dark:text-bluef-accent light:text-light-accent">
+            <span className="terminal:text-terminal-accent light:text-light-accent">
               Published: {vulnerability.published}
             </span>
-            <span className="text-terminal-accent dark:text-bluef-accent light:text-light-accent">
+            <span className="terminal:text-terminal-accent light:text-light-accent">
               Modified: {vulnerability.lastModified}
             </span>
-            <span className="text-terminal-text dark:text-bluef-text light:text-light-text opacity-60">
+            <span className="terminal:text-terminal-text light:text-light-text opacity-60">
               Status: {vulnerability.status}
             </span>
           </div>
@@ -150,11 +152,11 @@ export default function VulnerabilityDetailPage({ params }: { params: { id: stri
 
       {/* Description */}
       <section className="mb-8">
-        <h2 className="text-xl font-bold mb-4 terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
+        <h2 className="text-xl font-bold mb-4 terminal:text-terminal-accent light:text-light-accent font-mono">
           $ cat description.txt
         </h2>
-        <div className="border terminal:border-terminal-accent/30 blue:border-bluef-accent/30 light:border-gray-300 rounded-lg p-6 terminal:bg-terminal-accent/5 blue:bg-bluef-accent/5 light:bg-gray-50">
-          <p className="text-terminal-text dark:text-bluef-text light:text-light-text leading-relaxed">
+        <div className="border terminal:border-terminal-accent/30 light:border-gray-300 rounded-lg p-6 terminal:bg-terminal-accent/5 light:bg-gray-50">
+          <p className="terminal:text-terminal-text light:text-light-text leading-relaxed">
             {vulnerability.description}
           </p>
         </div>
@@ -162,45 +164,35 @@ export default function VulnerabilityDetailPage({ params }: { params: { id: stri
 
       {/* CVSS Scores */}
       <section className="mb-8">
-        <h2 className="text-xl font-bold mb-4 terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
+        <h2 className="text-xl font-bold mb-4 terminal:text-terminal-accent light:text-light-accent font-mono">
           $ cat cvss_scores.txt
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* CVSS 3.1 Score */}
-          <div className="border terminal:border-terminal-accent/30 blue:border-bluef-accent/30 light:border-gray-300 rounded-lg p-4">
-            <h3 className="font-bold text-terminal-text dark:text-bluef-text light:text-light-text font-mono mb-2">
-              CVSS 3.1
-            </h3>
+          <div className="border terminal:border-terminal-accent/30 light:border-gray-300 rounded-lg p-4">
+            <h3 className="font-bold terminal:text-terminal-text light:text-light-text font-mono mb-2">CVSS 3.1</h3>
             <div className={`text-2xl font-bold font-mono ${getCVSSColor(vulnerability.cvssDetails.score)}`}>
               {vulnerability.cvssDetails.score}/10
             </div>
-            <p className="text-sm text-terminal-text dark:text-bluef-text light:text-light-text opacity-70 font-mono mt-1">
+            <p className="text-sm terminal:text-terminal-text light:text-light-text opacity-70 font-mono mt-1">
               {vulnerability.cvssDetails.vector}
             </p>
           </div>
 
           {/* CVSS 2.0 Score (if available) */}
-          <div className="border terminal:border-terminal-accent/30 blue:border-bluef-accent/30 light:border-gray-300 rounded-lg p-4">
-            <h3 className="font-bold text-terminal-text dark:text-bluef-text light:text-light-text font-mono mb-2">
-              CVSS 2.0
-            </h3>
-            <div className="text-2xl font-bold font-mono text-gray-400">
-              N/A
-            </div>
-            <p className="text-sm text-terminal-text dark:text-bluef-text light:text-light-text opacity-70 font-mono mt-1">
+          <div className="border terminal:border-terminal-accent/30 light:border-gray-300 rounded-lg p-4">
+            <h3 className="font-bold terminal:text-terminal-text light:text-light-text font-mono mb-2">CVSS 2.0</h3>
+            <div className="text-2xl font-bold font-mono text-gray-400">N/A</div>
+            <p className="text-sm terminal:text-terminal-text light:text-light-text opacity-70 font-mono mt-1">
               Not available
             </p>
           </div>
 
           {/* CVSS 4.0 Score (if available) */}
-          <div className="border terminal:border-terminal-accent/30 blue:border-bluef-accent/30 light:border-gray-300 rounded-lg p-4">
-            <h3 className="font-bold text-terminal-text dark:text-bluef-text light:text-light-text font-mono mb-2">
-              CVSS 4.0
-            </h3>
-            <div className="text-2xl font-bold font-mono text-gray-400">
-              N/A
-            </div>
-            <p className="text-sm text-terminal-text dark:text-bluef-text light:text-light-text opacity-70 font-mono mt-1">
+          <div className="border terminal:border-terminal-accent/30 light:border-gray-300 rounded-lg p-4">
+            <h3 className="font-bold terminal:text-terminal-text light:text-light-text font-mono mb-2">CVSS 4.0</h3>
+            <div className="text-2xl font-bold font-mono text-gray-400">N/A</div>
+            <p className="text-sm terminal:text-terminal-text light:text-light-text opacity-70 font-mono mt-1">
               Not available
             </p>
           </div>
@@ -209,28 +201,28 @@ export default function VulnerabilityDetailPage({ params }: { params: { id: stri
 
       {/* Attack Vector & Products */}
       <section className="mb-8">
-        <h2 className="text-xl font-bold mb-4 terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
+        <h2 className="text-xl font-bold mb-4 terminal:text-terminal-accent light:text-light-accent font-mono">
           $ cat details.txt
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="border terminal:border-terminal-accent/30 blue:border-bluef-accent/30 light:border-gray-300 rounded-lg p-4">
-            <h3 className="font-bold text-terminal-text dark:text-bluef-text light:text-light-text font-mono mb-3">
+          <div className="border terminal:border-terminal-accent/30 light:border-gray-300 rounded-lg p-4">
+            <h3 className="font-bold terminal:text-terminal-text light:text-light-text font-mono mb-3">
               Attack Vector
             </h3>
-            <span className="text-terminal-accent dark:text-bluef-accent light:text-light-accent font-mono">
+            <span className="terminal:text-terminal-accent light:text-light-accent font-mono">
               {vulnerability.attackVector}
             </span>
           </div>
 
-          <div className="border terminal:border-terminal-accent/30 blue:border-bluef-accent/30 light:border-gray-300 rounded-lg p-4">
-            <h3 className="font-bold text-terminal-text dark:text-bluef-text light:text-light-text font-mono mb-3">
+          <div className="border terminal:border-terminal-accent/30 light:border-gray-300 rounded-lg p-4">
+            <h3 className="font-bold terminal:text-terminal-text light:text-light-text font-mono mb-3">
               Affected Products
             </h3>
             <div className="flex flex-wrap gap-2">
               {vulnerability.products.map((product, index) => (
                 <span
                   key={index}
-                  className="text-xs font-mono px-2 py-1 terminal:bg-terminal-accent/10 blue:bg-bluef-accent/10 light:bg-gray-100 terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent rounded"
+                  className="text-xs font-mono px-2 py-1 terminal:bg-terminal-accent/10 light:bg-gray-100 terminal:text-terminal-accent light:text-light-accent rounded"
                 >
                   {product}
                 </span>
@@ -243,15 +235,15 @@ export default function VulnerabilityDetailPage({ params }: { params: { id: stri
       {/* Weaknesses */}
       {vulnerability.weaknesses && vulnerability.weaknesses.length > 0 && (
         <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4 terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
+          <h2 className="text-xl font-bold mb-4 terminal:text-terminal-accent light:text-light-accent font-mono">
             $ cat weaknesses.txt
           </h2>
-          <div className="border terminal:border-terminal-accent/30 blue:border-bluef-accent/30 light:border-gray-300 rounded-lg p-4">
+          <div className="border terminal:border-terminal-accent/30 light:border-gray-300 rounded-lg p-4">
             <div className="flex flex-wrap gap-2">
               {vulnerability.weaknesses.map((weakness, index) => (
                 <span
                   key={index}
-                  className="text-xs font-mono px-2 py-1 terminal:bg-red-500/10 blue:bg-red-500/10 light:bg-red-100 text-red-600 rounded"
+                  className="text-xs font-mono px-2 py-1 terminal:bg-red-500/10 light:bg-red-100 text-red-600 rounded"
                 >
                   {weakness}
                 </span>
@@ -264,32 +256,32 @@ export default function VulnerabilityDetailPage({ params }: { params: { id: stri
       {/* References */}
       {vulnerability.references && vulnerability.references.data && vulnerability.references.data.length > 0 && (
         <section className="mb-8">
-          <h2 className="text-xl font-bold mb-4 terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent font-mono">
+          <h2 className="text-xl font-bold mb-4 terminal:text-terminal-accent light:text-light-accent font-mono">
             $ cat references.txt
           </h2>
-          <div className="border terminal:border-terminal-accent/30 blue:border-bluef-accent/30 light:border-gray-300 rounded-lg p-4">
+          <div className="border terminal:border-terminal-accent/30 light:border-gray-300 rounded-lg p-4">
             <div className="space-y-3">
               {vulnerability.references.data.map((reference, index) => (
                 <div key={index} className="flex items-center gap-2">
-                  <span className="text-terminal-accent dark:text-bluef-accent light:text-light-accent font-mono text-sm">
+                  <span className="terminal:text-terminal-accent light:text-light-accent font-mono text-sm">
                     [{index + 1}]
                   </span>
                   <a
                     href={reference}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-terminal-accent dark:text-bluef-accent light:text-light-accent hover:underline font-mono text-sm break-all"
+                    className="terminal:text-terminal-accent light:text-light-accent hover:underline font-mono text-sm break-all"
                   >
                     {reference}
                   </a>
                 </div>
               ))}
             </div>
-            
+
             {vulnerability.references.providers && vulnerability.references.providers.length > 0 && (
-              <div className="mt-4 pt-4 border-t border-terminal-accent/20 dark:border-bluef-accent/20 light:border-gray-200">
-                <p className="text-sm text-terminal-text dark:text-bluef-text light:text-light-text opacity-70 font-mono">
-                  Sources: {vulnerability.references.providers.join(', ')}
+              <div className="mt-4 pt-4 border-t terminal:border-terminal-accent/20 light:border-gray-200">
+                <p className="text-sm terminal:text-terminal-text light:text-light-text opacity-70 font-mono">
+                  Sources: {vulnerability.references.providers.join(", ")}
                 </p>
               </div>
             )}
@@ -298,14 +290,12 @@ export default function VulnerabilityDetailPage({ params }: { params: { id: stri
       )}
 
       {/* Footer */}
-      <div className="mt-12 pt-8 border-t border-terminal-accent/30 dark:border-bluef-accent/30 light:border-gray-300">
-        <div className="text-center font-mono text-terminal-text dark:text-bluef-text light:text-light-text opacity-70">
+      <div className="mt-12 pt-8 border-t terminal:border-terminal-accent/30 light:border-gray-300">
+        <div className="text-center font-mono terminal:text-terminal-text light:text-light-text opacity-70">
           <p className="mb-2">$ echo "Vulnerability data provided by CVE APIs"</p>
-          <p>
-            Last updated: {vulnerability.lastModified}
-          </p>
+          <p>Last updated: {vulnerability.lastModified}</p>
         </div>
       </div>
     </div>
   )
-} 
+}

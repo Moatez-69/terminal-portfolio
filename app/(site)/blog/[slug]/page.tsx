@@ -1,80 +1,95 @@
-import { getPostData, getSortedPostsData } from "@/lib/posts";
-import { remark } from "remark";
-import html from "remark-html";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+import { getPostData, getSortedPostsData } from "@/lib/posts"
+import { unified } from "unified"
+import remarkParse from "remark-parse"
+import remarkGfm from "remark-gfm"
+import remarkRehype from "remark-rehype"
+import rehypeHighlight from "rehype-highlight"
+import rehypeStringify from "rehype-stringify"
+import Link from "next/link"
+import { notFound } from "next/navigation"
 
 export async function generateStaticParams() {
-  const posts = getSortedPostsData();
+  const posts = getSortedPostsData()
   return posts.map((post) => ({
     slug: post.slug,
-  }));
+  }))
 }
 
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string }
 }) {
-  const post = getPostData(params.slug);
+  const post = getPostData(params.slug)
 
   if (!post) {
-    notFound();
+    notFound()
   }
 
-  const processedContent = await remark().use(html).process(post.content);
-  const contentHtml = processedContent.toString();
+  const file = await unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypeHighlight, { detect: true, ignoreMissing: true })
+    .use(rehypeStringify)
+    .process(post.content)
+
+  const contentHtml = String(file)
+
+  const wordCount = post.content.split(/\s+/).length
+  const readingTime = Math.ceil(wordCount / 200)
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto px-4 py-12">
       {/* Header */}
-      <div className="mb-8">
+      <div className="mb-12 border-b terminal:border-terminal-accent/20 light:border-gray-100 pb-12">
         <Link
           href="/blog"
-          className="inline-flex items-center terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent hover:underline font-mono text-sm mb-4"
+          className="inline-flex items-center terminal:text-terminal-accent light:text-light-accent hover:underline font-mono text-xs mb-8 uppercase tracking-widest transition-colors"
         >
-          ← $ cd ../blog
+          [ back to entries ]
         </Link>
 
-        <header className="border-b terminal:border-terminal-accent/30 blue:border-bluef-accent/30 light:border-gray-300 pb-6">
-          <h1 className="text-3xl md:text-4xl font-bold terminal:text-terminal-text blue:text-bluef-text light:text-light-text font-mono mb-4">
-            {post.title}
+        <header className="space-y-6">
+          <h1 className="text-4xl md:text-6xl font-bold terminal:text-terminal-text light:text-light-text font-mono leading-tight tracking-tighter">
+            {post.title.replace(/^#\s*/, "")}
           </h1>
 
-          <div className="flex items-center gap-4 text-sm font-mono">
-            <time className="terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent">
-              $ date: {post.date}
-            </time>
-            <span className="terminal:text-terminal-text blue:text-bluef-text light:text-light-text opacity-60">
-              • CTF Writeup
-            </span>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-xs font-mono opacity-70 uppercase tracking-wider">
+            <div className="flex items-center gap-2 terminal:text-terminal-accent light:text-light-accent">
+              <span>$ date:</span>
+              <time>{post.date}</time>
+            </div>
+            <div className="flex items-center gap-2 terminal:text-terminal-text light:text-light-text">
+              <span>$ read_time:</span>
+              <span>{readingTime} min</span>
+            </div>
+            <span className="terminal:text-terminal-text light:text-light-text opacity-50">• CTF Writeup</span>
           </div>
         </header>
       </div>
 
       {/* Content */}
-      <article className="prose prose-lg blue:prose-invert light:prose-slate max-w-none">
+      <article className="prose prose-invert light:prose-slate max-w-none">
         <div
-          className="terminal:text-terminal-text blue:text-bluef-text light:text-light-text"
+          className="terminal:text-terminal-text light:text-light-text selection:bg-terminal-accent/30"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
       </article>
 
       {/* Footer */}
-      <footer className="mt-12 pt-8 border-t terminal:border-terminal-accent/30 blue:border-bluef-accent/30 light:border-gray-300">
+      <footer className="mt-20 pt-10 border-t terminal:border-terminal-accent/20 light:border-gray-200">
         <div className="flex items-center justify-between font-mono text-sm">
           <Link
             href="/blog"
-            className="terminal:text-terminal-accent blue:text-bluef-accent light:text-light-accent hover:underline"
+            className="terminal:text-terminal-accent light:text-light-accent hover:underline px-4 py-2 border border-transparent hover:border-current rounded transition-all"
           >
             ← Back to all posts
           </Link>
 
-          <div className="terminal:text-terminal-text blue:text-bluef-text light:text-light-text opacity-60">
-            $ EOF
-          </div>
+          <div className="terminal:text-terminal-text light:text-light-text opacity-40 italic">$ end_of_file</div>
         </div>
       </footer>
     </div>
-  );
+  )
 }
