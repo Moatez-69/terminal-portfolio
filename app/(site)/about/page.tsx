@@ -20,6 +20,13 @@ export default function AboutPage() {
 
   const achievements = [
     {
+      title: "Claw the Flag 2025",
+      description: "9th place globally / 6th place in North Africa",
+      date: "2025",
+    }
+
+
+    {
       title: "CSAW 24",
       description: "Quals 4th in MENA / Finals 5th in MENA",
       date: "2024",
